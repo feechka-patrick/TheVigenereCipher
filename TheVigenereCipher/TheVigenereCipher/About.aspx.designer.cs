@@ -24,6 +24,15 @@ namespace TheVigenereCipher
         protected global::System.Web.UI.WebControls.FileUpload fileUpload;
 
         /// <summary>
+        /// Uplmessage элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Uplmessage;
+
+        /// <summary>
         /// downloadButton элемент управления.
         /// </summary>
         /// <remarks>
@@ -87,6 +96,15 @@ namespace TheVigenereCipher
         protected global::System.Web.UI.WebControls.Button calculateButton;
 
         /// <summary>
+        /// KeyMessage элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label KeyMessage;
+
+        /// <summary>
         /// convertedtext элемент управления.
         /// </summary>
         /// <remarks>
@@ -130,5 +148,14 @@ namespace TheVigenereCipher
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button save;
+
+        /// <summary>
+        /// PathMessage элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PathMessage;
     }
 }

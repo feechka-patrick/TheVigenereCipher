@@ -8,8 +8,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-//using DocumentFormat.OpenXml.Packaging;
-//using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace TheVigenereCipher
 {
@@ -32,6 +30,7 @@ namespace TheVigenereCipher
                 if (keybox.Text != null || keybox.Text != "")
                 {
                     keybox.BorderColor = System.Drawing.Color.Empty;
+                    KeyMessage.Text = "";
                 }
             }
         }
@@ -58,9 +57,11 @@ namespace TheVigenereCipher
                     if (fileUpload.PostedFile.ContentType.ToString().ToLower() == "text/plain")
                     {
                         textbox.Text = File.ReadAllText(pathToFile, Encoding.Default);
+                        Uplmessage.Text = "";
                     }
                     else if (fileUpload.PostedFile.ContentType.ToString().ToLower() == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" || fileUpload.PostedFile.ContentType.ToString().ToLower() == "doc")
                     {
+                        Uplmessage.Text = "";
                         Microsoft.Office.Interop.Word.Application word = new Microsoft.Office.Interop.Word.Application();
                         object path = pathToFile;
                         Microsoft.Office.Interop.Word.Document docs = word.Documents.Open(ref path);
@@ -80,7 +81,7 @@ namespace TheVigenereCipher
                     }
                     else
                     {
-                        textbox.Text = fileUpload.PostedFile.ContentType.ToString().ToLower();
+                        Uplmessage.Text = "Неверный формат файла";
                     }
 
                 }
@@ -105,6 +106,7 @@ namespace TheVigenereCipher
             if (key == null || key == "")
             {
                 keybox.BorderColor = System.Drawing.Color.Red;
+                KeyMessage.Text = "Данное поле не должно быть пустым";
             }
             else 
             {
@@ -196,7 +198,7 @@ namespace TheVigenereCipher
             {
                 if (doc_button.Checked)
                 {
-                    string path = filepath + ".doc";
+                    string path = filepath + ".docx";
                     File.WriteAllText(path, convertedtext.Text);
                 }
                 else
@@ -208,6 +210,7 @@ namespace TheVigenereCipher
             catch
             {
                 filePath.BorderColor = System.Drawing.Color.Red;
+                PathMessage.Text = "Неверный путь";
             }
             
             
@@ -229,6 +232,8 @@ namespace TheVigenereCipher
             {
                 filePath.BorderColor = System.Drawing.Color.Empty;
             }
+
+            PathMessage.Text = "";
         }
     }
 }
